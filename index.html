@@ -66,11 +66,9 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Индикатор чтения */
 .reading-progress { position: fixed; z-index: 10001; left: 0; top: 0; width: 100%; height: 3px; }
 .reading-progress span { display: block; height: 100%; width: 0; background: var(--brand-gold); transition: width 0.1s ease-out; }
 
-/* Компактная Липкая Шапка (Sticky Header) */
 .sticky-header {
   position: fixed; top: 0; left: var(--sidebar-w); right: 0; height: 42px; z-index: 900;
   background: var(--bg-sticky); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
@@ -86,7 +84,6 @@ body {
 .sticky-brand { font: 800 10px var(--font-sans); text-transform: uppercase; letter-spacing: 1.5px; color: var(--brand-gold); }
 .sticky-actions { display: flex; align-items: center; gap: 12px; }
 
-/* Сайдбар */
 .journal-sidebar {
   position: fixed; z-index: 1000; left: 0; top: 0; bottom: 0;
   width: var(--sidebar-w); overflow-y: auto; padding: 30px 22px;
@@ -102,7 +99,6 @@ body {
 .sidebar-brand .edition { font: 800 10px var(--font-sans); letter-spacing: 2px; text-transform: uppercase; color: var(--brand-gold); }
 .sidebar-brand .name { font: 700 16px var(--font-sans); color: var(--ink-primary); line-height: 1.25; margin-top: 4px; }
 
-/* Компактное верхнее меню */
 .sidebar-nav {
   display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--line-color);
 }
@@ -114,7 +110,6 @@ body {
 .sidebar-nav-link:hover { background: var(--line-color); color: var(--ink-primary); }
 .sidebar-nav-link .ext-icon { font-size: 10px; opacity: 0.5; }
 
-/* Переключатель темы */
 .theme-toggle {
   background: transparent; border: 1px solid var(--line-color); color: var(--ink-secondary);
   border-radius: 8px; width: 34px; height: 34px; cursor: pointer;
@@ -135,7 +130,6 @@ body {
 .toc-list a.active { background: var(--brand-accent); color: #ffffff; }
 .toc-list a.active .toc-number { color: var(--brand-gold); }
 
-/* Главное содержимое */
 .journal-main { margin-left: var(--sidebar-w); padding: 40px 24px 80px; }
 .paper { width: min(100%, var(--content-w)); margin: 0 auto; }
 
@@ -147,7 +141,6 @@ body {
 .masthead h1 { font: 800 clamp(26px, 3.5vw, 42px)/1.15 var(--font-sans); color: var(--ink-primary); margin: 12px 0; }
 .masthead-meta { font: 600 11px var(--font-sans); color: var(--ink-muted); text-transform: uppercase; letter-spacing: 1px; display: flex; gap: 20px; }
 
-/* Статьи */
 .rubric-header {
   font: 800 12px var(--font-sans); letter-spacing: 2.5px; text-transform: uppercase;
   color: var(--brand-gold); margin: 50px 0 16px; padding-bottom: 8px; border-bottom: 2px solid var(--line-color);
@@ -157,14 +150,12 @@ body {
   box-shadow: var(--shadow-md); transition: background-color 0.3s;
 }
 
-/* Верхний панель статьи (Лейбл + Кнопки скачивания) */
 .article-top-bar {
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
   margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed var(--line-color);
 }
 .article-label { font: 800 10px var(--font-sans); letter-spacing: 1.5px; text-transform: uppercase; color: var(--ink-muted); }
 
-/* Стили кнопок скачивания */
 .article-downloads { display: flex; align-items: center; gap: 8px; }
 .btn-dl {
   display: inline-flex; align-items: center; gap: 5px;
@@ -177,7 +168,12 @@ body {
 .btn-dl-docx { background-color: rgba(37, 99, 235, 0.08); color: #2563eb; border-color: rgba(37, 99, 235, 0.2); }
 .btn-dl-docx:hover { background-color: #2563eb; color: #ffffff; }
 
+.btn-dl-excel { background-color: rgba(16, 185, 129, 0.08); color: #059669; border-color: rgba(16, 185, 129, 0.2); margin-top: 8px; }
+.btn-dl-excel:hover { background-color: #059669; color: #ffffff; }
+
 .btn-dl svg { width: 13px; height: 13px; fill: currentColor; }
+
+.table-download-bar { display: flex; justify-content: flex-end; padding: 6px 10px; background: var(--bg-card); border-top: 1px solid var(--line-color); }
 
 .article-author { font: 700 12px var(--font-sans); letter-spacing: 1px; text-transform: uppercase; color: var(--brand-gold); margin-bottom: 12px; }
 .article-title { font: 700 clamp(22px, 2.8vw, 32px)/1.2 var(--font-sans); color: var(--ink-primary); margin: 0 0 12px; }
@@ -186,13 +182,11 @@ body {
 .article-content { font-size: 17px; line-height: 1.75; color: var(--ink-primary); }
 .article-content p { margin: 0 0 18px; text-align: justify; text-indent: 24px; }
 
-/* Lead Paragraph & Drop Cap */
 .article-content p.lead-paragraph { font-size: 19px; line-height: 1.65; text-indent: 0; font-weight: 400; color: var(--ink-primary); margin-bottom: 22px; }
 .article-content p.lead-paragraph::first-letter {
   font: 700 3.2em/0.8 var(--font-sans); float: left; margin: 4px 10px 0 0; color: var(--brand-gold);
 }
 
-/* Сноски и поповеры */
 .footnote-ref { font-family: var(--font-sans); vertical-align: super; font-size: 0.75em; margin-left: 2px; }
 .footnote-ref a { color: var(--brand-accent); font-weight: 700; text-decoration: none; padding: 0 2px; }
 .footnote-popover {
@@ -209,13 +203,11 @@ body {
 .footnote-number { position: absolute; left: 0; font-weight: 700; color: var(--brand-gold); }
 .footnote-back { color: var(--brand-accent); text-decoration: none; margin-left: 6px; font-weight: 700; }
 
-/* Таблицы */
 .table-container { width: 100%; overflow-x: auto; margin: 28px 0; border: 1px solid var(--line-color); border-radius: 8px; }
 .journal-table { width: 100%; min-width: 580px; border-collapse: collapse; font: 400 13px/1.5 var(--font-sans); }
 .journal-table th, .journal-table td { border: 1px solid var(--line-color); padding: 10px 12px; text-align: left; }
 .journal-table th { background: var(--bg-main); color: var(--ink-primary); font-weight: 700; position: sticky; top: 0; z-index: 10; }
 
-/* Изображения и Lightbox */
 .journal-image { margin: 28px 0; text-align: center; }
 .journal-image img { max-width: 100%; height: auto; border-radius: 8px; cursor: zoom-in; box-shadow: var(--shadow-sm); transition: transform 0.2s; }
 .journal-image img:hover { transform: scale(1.01); }
@@ -227,11 +219,9 @@ body {
 .lightbox.visible { opacity: 1; visibility: visible; }
 .lightbox img { max-width: 90vw; max-height: 90vh; border-radius: 6px; box-shadow: var(--shadow-lg); }
 
-/* Ссылки */
 .doc-official-link { color: var(--brand-accent); font-weight: 600; text-decoration: underline; text-decoration-color: var(--brand-gold); text-underline-offset: 3px; transition: 0.2s; }
 .doc-official-link:hover { color: var(--brand-gold); }
 
-/* Мобильная адаптивность */
 .back-to-top {
   position: fixed; z-index: 900; right: 24px; bottom: 24px; width: 44px; height: 44px;
   background: var(--bg-card); border: 1px solid var(--line-color); color: var(--ink-primary);
@@ -240,16 +230,33 @@ body {
 }
 .back-to-top.visible { opacity: 1; visibility: visible; }
 
+.mobile-toc-button { display: none; }
+
 @media (max-width: 900px) {
-  .sticky-header { left: 0; }
+  .sticky-header { left: 0; padding-left: 50px; }
+  .sticky-title { max-width: 65%; }
   .journal-sidebar { transform: translateX(-100%); transition: transform 0.25s ease; }
   .journal-sidebar.open { transform: translateX(0); }
   .journal-main { margin-left: 0; padding: 20px 12px 60px; }
   .article { padding: 28px 20px; }
+  
   .mobile-toc-button {
-    display: flex; position: fixed; z-index: 1100; right: 16px; bottom: 16px; width: 48px; height: 48px;
-    border-radius: 50%; background: var(--brand-accent); color: #ffffff; border: none;
-    align-items: center; justify-content: center; font-size: 20px; cursor: pointer; box-shadow: var(--shadow-lg);
+    display: flex;
+    position: fixed;
+    z-index: 1100;
+    top: 5px;
+    left: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: var(--brand-accent);
+    color: #ffffff;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
   }
 }
 </style>
@@ -257,12 +264,13 @@ body {
 <body id="top">
 <div class="reading-progress"><span id="readingProgress"></span></div>
 
-<!-- Липкая шапка -->
+<button class="mobile-toc-button" id="mobileTocButton" type="button" aria-label="Открыть содержание">☰</button>
+
 <header class="sticky-header" id="stickyHeader">
   <div class="sticky-title" id="stickyTitle">Загрузка...</div>
   <div class="sticky-actions">
     <span class="sticky-brand">ГО и ЧС</span>
-    <button class="theme-toggle" class="themeToggleBtn" title="Сменить тему">🌙</button>
+    <button class="theme-toggle" title="Сменить тему">🌙</button>
   </div>
 </header>
 
@@ -272,12 +280,11 @@ body {
       <div class="edition">Электронное издание</div>
       <div class="name">Гражданская оборона и защита от ЧС в учреждениях, организациях и на предприятиях</div>
     </div>
-    <button class="theme-toggle" class="themeToggleBtn" title="Сменить тему">🌙</button>
+    <button class="theme-toggle" title="Сменить тему">🌙</button>
   </div>
 
-  <!-- Верхнее меню -->
   <nav class="sidebar-nav">
-        <a href="https://gochs-expert.ru/base" target="_blank" rel="noopener" class="sidebar-nav-link">
+    <a href="https://gochs-expert.ru/base" target="_blank" rel="noopener" class="sidebar-nav-link">
       <span>База документов</span><span class="ext-icon">↗</span>
     </a>
     <a href="https://xn--------3veaabcahvp3aypd2a3deubak3alvuzd5n8bzl.xn--p1ai/shop" target="_blank" rel="noopener" class="sidebar-nav-link">
@@ -288,8 +295,6 @@ body {
   <div class="toc-title">Содержание номера</div>
 <div class="toc-group"><div class="toc-category">ЗАЩИТА ОБЪЕКТОВ</div><ul class="toc-list"><li><a href="#article-1" data-article-link="article-1"><span class="toc-number">01</span>ЗАЩИТА ОБЪЕКТОВ КРИТИЧЕСКОЙ ИНФРАСТРУКТУРЫ: НОВЫЕ ТРЕБОВАНИЯ И РЕКОМЕНДАЦИИ ДЛЯ ПРЕДПРИЯТИЙ</a></li></ul></div><div class="toc-group"><div class="toc-category">ЗАЩИТА ОТ ЧРЕЗВЫЧАЙНЫХ СИТУАЦИЙ</div><ul class="toc-list"><li><a href="#article-2" data-article-link="article-2"><span class="toc-number">02</span>НОВЫЕ ПОДХОДЫ К ОБЕСПЕЧЕНИЮ БЕЗОПАСНОСТИ НАСЕЛЕНИЯ В ЧРЕЗВЫЧАЙНЫХ СИТУАЦИЯХ НА ОСНОВЕ ПНСТ 1033-2025</a></li></ul></div><div class="toc-group"><div class="toc-category">ОБУЧЕНИЕ И ТРЕНИРОВКИ</div><ul class="toc-list"><li><a href="#article-3" data-article-link="article-3"><span class="toc-number">03</span>РАЗБОР ПРОВАЛЬНОГО УЧЕНИЯ В ТЮРИНГИИ</a></li></ul></div><div class="toc-group"><div class="toc-category">СПАСАТЕЛЬНЫЕ СЛУЖБЫ</div><ul class="toc-list"><li><a href="#article-4" data-article-link="article-4"><span class="toc-number">04</span>СПАСАТЕЛЬНАЯ СЛУЖБА ТОРГОВЛИ, ПИТАНИЯ И БЫТОВЫХ УСЛУГ ПО ОБЕСПЕЧЕНИЮ ВЫПОЛНЕНИЯ МЕРОПРИЯТИЙ ГРАЖДАНСКОЙ ОБОРОНЫ НА МУНИЦИПАЛЬНОМ УРОВНЕ: ЗАДАЧИ, ФУНКЦИИ, ОРГАНИЗАЦИЯ ДЕЯТЕЛЬНОСТИ</a></li></ul></div><div class="toc-group"><div class="toc-category">ЗАЩИТНЫЕ СООРУЖЕНИЯ ГРАЖДАНСКОЙ ОБОРОНЫ</div><ul class="toc-list"><li><a href="#article-5" data-article-link="article-5"><span class="toc-number">05</span>РАЗБОР ЕЩЕ ОДНОГО СУДЕБНОГО РЕШЕНИЯ ПО ЗАЩИТНОМУ СООРУЖЕНИЮ ГРАЖДАНСКОЙ ОБОРОНЫ</a></li></ul></div><div class="toc-group"><div class="toc-category">ПОДГОТОВКА НАСЕЛЕНИЯ</div><ul class="toc-list"><li><a href="#article-6" data-article-link="article-6"><span class="toc-number">06</span>НОРМАТИВНО-ПРАВОВЫЕ ТРЕБОВАНИЯ К ОРГАНИЗАЦИИ ПОДГОТОВКИ НАСЕЛЕНИЯ В ОБЛАСТИ ГРАЖДАНСКОЙ ОБОРОНЫ</a></li></ul></div><div class="toc-group"><div class="toc-category">ПРОТИВОЭПИДЕМИЧЕСКОЕ ОБЕСПЕЧЕНИЕ</div><ul class="toc-list"><li><a href="#article-7" data-article-link="article-7"><span class="toc-number">07</span>ПРОТИВОЭПИДЕМИЧЕСКОЕ ОБЕСПЕЧЕНИЕ НАСЕЛЕНИЯ В УСЛОВИЯХ ЧРЕЗВЫЧАЙНЫХ СИТУАЦИЙ</a></li></ul></div><div class="toc-group"><div class="toc-category">МЕТОДИЧЕСКИЕ МАТЕРИАЛЫ</div><ul class="toc-list"><li><a href="#article-8" data-article-link="article-8"><span class="toc-number">08</span>СТРУКТУРА И СОДЕРЖАНИЕ ПЛАНА ДЕЙСТВИЙ ПО ПРЕДУПРЕЖДЕНИЮ И ЛИКВИДАЦИИ ЧРЕЗВЫЧАЙНЫХ СИТУАЦИЙ ОРГАНИЗАЦИИ</a></li><li><a href="#article-9" data-article-link="article-9"><span class="toc-number">09</span>СРОЧНОЕ ЗАХОРОНЕНИЕ ТРУПОВ В ВОЕННОЕ ВРЕМЯ И ПРИ ЧРЕЗВЫЧАЙНЫХ СИТУАЦИЯХ КАК ОДНА ИЗ ОСНОВНЫХ ЗАДАЧ ГРАЖДАНСКОЙ ОБОРОНЫ</a></li></ul></div><div class="toc-group"><div class="toc-category">КОНСПЕКТ СПЕЦИАЛИСТА ПО ГО И ЧС</div><ul class="toc-list"><li><a href="#article-10" data-article-link="article-10"><span class="toc-number">10</span>ПОВЫШЕНИЕ УСТОЙЧИВОСТИ ФУНКЦИОНИРОВАНИЯ ОБЪЕКТОВ ЭКОНОМИКИ В УСЛОВИЯХ ЧРЕЗВЫЧАЙНЫХ СИТУАЦИЙ МИРНОГО И ВОЕННОГО ВРЕМЕНИ</a></li><li><a href="#article-11" data-article-link="article-11"><span class="toc-number">11</span>СВЕТОМАСКИРОВКА НАСЕЛЕННЫХ ПУНКТОВ И ОБЪЕКТОВ ЭКОНОМИКИ В ОТВЕТАХ И ВОПРОСАХ</a></li></ul></div>
 </aside>
-
-<button class="mobile-toc-button" id="mobileTocButton" type="button" aria-label="Открыть содержание">☰</button>
 
 <main class="journal-main"><div class="paper">
 <header class="masthead">
@@ -940,7 +945,7 @@ body {
     <td>Обследует объект, фиксирует утрату защитных свойств или иные основания, готовит документы для снятия ЗСГО с учета.</td>
   </tr>
 </table>
-</div>
+<div class="table-download-bar"><a href="downloads/excel/Ключевые_обязанности_субъектов_по_ЗСГО.xlsx" class="btn-dl btn-dl-excel" download title="Скачать таблицу в Excel"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm1 10l-2.5 4 2.5 4h-1.7l-1.8-3-1.8 3h-1.7l2.5-4-2.5-4h1.7l1.8 3 1.8-3h1.7z"/></svg>Скачать таблицу в Excel</a></div></div>
 <p style="text-align: justify;"><b>Заключение</b></p>
 <p style="text-align: justify;">Дело ПАО «Таттелеком» стало хорошей иллюстрацией того, что для системы ГОЧС понятие «подвал» не существует: если объект однажды включен в фонд защитных сооружений, выйти из него можно только через строгую формализованную процедуру. Вопрос, который остается открытым для многих собственников и региональных органов ГОЧС, звучит просто, но остро: готовы ли они к тому, что следующее «скрытое» защитное сооружение обнаружится уже не на судебном заседании, а в момент реальной угрозы?</p>
 <p style="text-align: justify;">В настоящее время государство повышает требования к готовности защитных сооружений и одновременно ужесточает подход к попыткам вывести такие объекты из фонда ЗСГО через суд или упрощенные процедуры. На этом фоне главный вопрос для специалистов ГОЧС и собственников звучит уже не так, «как избавиться от неудобного подвала», а скорее так: «Готовы ли мы выстроить управление недвижимостью и правовую работу так, чтобы в момент реальной угрозы не обнаружить, что формально существующее ЗСГО давно превратилось в склад, но юридически так и осталось единственным шансом для укрытия людей?»</p>
@@ -1079,7 +1084,7 @@ body {
 <p style="text-align: justify;">- организацию и проведение санитарно-эпидемиологического надзора во время следования в поездах, судах, на автотранспорте, на самолетах; </p>
 <p style="text-align: justify;">- осуществление санитарно-эпидемиологического надзора за местами питания и водоснабжения. </p>
 <p style="text-align: justify;">Ответственные лица за санитарно-противоэпидемическое обеспечение эвакуируемых осуществляют постоянную связь с ответственными представителями органов, осуществляющих эвакуацию пострадавшего населения. </p>
-<p style="text-align: justify;">При оценке условий размещения пострадавшего населения органы руководствуются методическими рекомендациями «МР 1.1.0093-14. Условия организации и функционирования пунктов временного размещения и пунктов долговременного пребывания людей, прибывающих из зон чрезвычайных ситуаций» (утв. Главным государственным санитарным врачом РФ 17.09.2009). </p>
+<p style="text-align: justify;">При оценке условий размещения пострадавшего населения органы руководствуются <a href="https://docs.google.com/document/d/15ZHxaN76VAoPyy-tizAgjQpfJHhHh6Ia/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">методическими рекомендациями «МР 1.1.0093-14. Условия организации и функционирования пунктов временного размещения и пунктов долговременного пребывания людей, прибывающих из зон чрезвычайных ситуаций»</a> (утв. Главным государственным санитарным врачом РФ 17.09.2009). </p>
 <p style="text-align: justify;"> Санитарно-противоэпидемические (профилактические) мероприятия в пути следования включают: </p>
 <p style="text-align: justify;">- выявление, изоляцию и госпитализацию инфекционных больных в близлежащие больницы, расположенные на путях эвакуации; </p>
 <p style="text-align: justify;">- установление медицинского наблюдения за контактными лицами; </p>
@@ -1090,7 +1095,7 @@ body {
 <p style="text-align: justify;">АСДНР – аварийно-спасательные и другие неотложные работы;</p>
 <p style="text-align: justify;">АСС – аварийно-спасательная служба;</p>
 <p style="text-align: justify;">АСФ – аварийно-спасательное формирование;</p>
-<p style="text-align: justify;"><a href="https://docs.google.com/document/d/1LLcelZw6O_RZhla8xAHJejMofU3hi48k/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">ГОСТ Р 22.2.14-2023</a> – национальный стандарт Российской Федерации «<a href="https://docs.google.com/document/d/1LLcelZw6O_RZhla8xAHJejMofU3hi48k/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">ГОСТ Р 22.2.14-2023</a>. Безопасность в чрезвычайных ситуациях. План действий по предупреждению и ликвидации чрезвычайных ситуаций организации. Порядок разработки. Требования к содержанию и оформлению» (утв. и введен в действие <a href="https://docs.google.com/document/d/1LLcelZw6O_RZhla8xAHJejMofU3hi48k/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">приказом Росстандарта от 21.09.2023 N 905-ст</a>);</p>
+<p style="text-align: justify;"><a href="https://docs.google.com/document/d/1LLcelZw6O_RZhla8xAHJejMofU3hi48k/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">ГОСТ Р 22.2.14-2023</a> – национальный стандарт Российской Федерации «<a href="https://docs.google.com/document/d/1LLcelZw6O_RZhla8xAHJejMofU3hi48k/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">ГОСТ Р 22.2.14-2023.</a> Безопасность в чрезвычайных ситуациях. План действий по предупреждению и ликвидации чрезвычайных ситуаций организации. Порядок разработки. Требования к содержанию и оформлению» (утв. и введен в действие <a href="https://docs.google.com/document/d/1LLcelZw6O_RZhla8xAHJejMofU3hi48k/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">приказом Росстандарта от 21.09.2023 N 905-ст</a>);</p>
 <p style="text-align: justify;">ГОЧС – гражданская оборона и защита населения и территорий от чрезвычайных ситуаций;</p>
 <p style="text-align: justify;">ДДС – дежурно-диспетчерская служба;</p>
 <p style="text-align: justify;">КВО – критически важный объект;</p>
@@ -1296,8 +1301,7 @@ body {
 <p style="text-align: justify;"><b>3. Расчет сил и средств, привлекаемых для выполнения мероприятий при угрозе возникновения чрезвычайных ситуаций</b></p>
 <p style="text-align: justify;">Подраздел оформляют по форме в соответствии с табл. 1.</p>
 <p style="text-align: right; text-indent: 0;"><span class="doc-ref">Таблица 1</span></p>
-<p style="text-align: center; text-indent: 0;">Форма расчета сил и средств, привлекаемых для выполнения</p>
-<p style="text-align: center; text-indent: 0;">мероприятий при угрозе возникновения ЧС</p>
+<p style="text-align: center; text-indent: 0;">Форма расчета сил и средств, привлекаемых для выполнения мероприятий при угрозе возникновения ЧС</p>
 <div class="table-container">
 <table class="journal-table">
   <tr>
@@ -1344,7 +1348,7 @@ body {
     <td></td>
   </tr>
 </table>
-</div>
+<div class="table-download-bar"><a href="downloads/excel/Форма_расчета_сил_и_средств_привлекаемых_для_выполнения_мероприятий_при_угрозе_возникновения_ЧС.xlsx" class="btn-dl btn-dl-excel" download title="Скачать таблицу в Excel"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm1 10l-2.5 4 2.5 4h-1.7l-1.8-3-1.8 3h-1.7l2.5-4-2.5-4h1.7l1.8 3 1.8-3h1.7z"/></svg>Скачать таблицу в Excel</a></div></div>
 <p style="text-align: justify;"><b>4. Организация действий сил и средств, привлекаемых для выполнения мероприятий при угрозе возникновения ЧС</b></p>
 <p style="text-align: justify;">Подраздел включает в себя следующую информацию:</p>
 <p style="text-align: justify;">- силы и средства АСС, АСФ и иных служб и организаций, привлекаемые при угрозе возникновения ЧС;</p>
@@ -1416,8 +1420,7 @@ body {
 <p style="text-align: justify;">Для каждого вида прогнозируемой ЧС приложение "Возможная обстановка при возникновении чрезвычайных ситуаций" рекомендуется выполнять на отдельных картах (схемах).</p>
 <p style="text-align: justify;">Приложение 2 "Календарный план мероприятий при угрозе возникновения и возникновении чрезвычайных ситуаций". Приложение рекомендуется оформлять по форме, приведенной в табл. 2.</p>
 <p style="text-align: right; text-indent: 0;"><span class="doc-ref">Таблица 2</span></p>
-<p style="text-align: center; text-indent: 0;">Форма оформления календарного плана мероприятий</p>
-<p style="text-align: center; text-indent: 0;">при угрозе возникновения и возникновении ЧС</p>
+<p style="text-align: center; text-indent: 0;">Форма оформления календарного плана мероприятий при угрозе возникновения и возникновении ЧС</p>
 <div class="table-container">
 <table class="journal-table">
   <tr>
@@ -1508,7 +1511,7 @@ body {
     <td></td>
   </tr>
 </table>
-</div>
+<div class="table-download-bar"><a href="downloads/excel/Форма_оформления_календарного_плана_мероприятий_при_угрозе_возникновения_и_возникновении_ЧС.xlsx" class="btn-dl btn-dl-excel" download title="Скачать таблицу в Excel"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm1 10l-2.5 4 2.5 4h-1.7l-1.8-3-1.8 3h-1.7l2.5-4-2.5-4h1.7l1.8 3 1.8-3h1.7z"/></svg>Скачать таблицу в Excel</a></div></div>
 <p style="text-align: justify;">Приложение 3 "План мероприятий по защите работников и организации аварийно-спасательных и других неотложных работ при угрозе возникновения и возникновении чрезвычайных ситуаций" оформляют в текстовом виде, а также в целях визуализации – на карте, схеме, с указанием:</p>
 <p style="text-align: justify;">- маршрутов перемещения сил и средств ликвидации ЧС;</p>
 <p style="text-align: justify;">- маршрутов эвакуации рабочих, служащих организации и населения из каждой прогнозируемой (расчетной) зоны ЧС;</p>
@@ -1802,7 +1805,7 @@ body {
 <p style="text-align: justify;">- подготовки перевода объекта на аварийный режим работы и упрощенные для военного времени технологии;</p>
 <p style="text-align: justify;">- подготовки к восстановлению нарушенного производства.</p>
 <p style="text-align: justify;">Мероприятия по обеспечению устойчивости функционирования объекта предусматриваются на стадии проектирования объекта и включаются в состав проектно-сметной документации.</p>
-<p style="text-align: justify;">Эти мероприятия разрабатываются согласно требованиям федеральных документов, в том числе «<a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СП 165.1325800.2014</a>. Свод правил. Инженерно-технические мероприятия по гражданской обороне. Актуализированная редакция <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СНиП 2.01.51-90</a>»<sup class="footnote-ref"><a href="#article-10-footnote-23" id="article-10-footnote-ref-23" data-popover="Утвержден и введен в действие приказом Минстроя России от 12.11.2014 N 705/пр) (ред. от 12.04.2023)." title="Сноска 23">23</a></sup>.</p>
+<p style="text-align: justify;">Эти мероприятия разрабатываются согласно требованиям федеральных документов, в том числе «<a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СП 165.1325800.2014.</a> Свод правил. Инженерно-технические мероприятия по гражданской обороне. Актуализированная редакция <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СНиП 2.01.51-90</a>»<sup class="footnote-ref"><a href="#article-10-footnote-23" id="article-10-footnote-ref-23" data-popover="Утвержден и введен в действие приказом Минстроя России от 12.11.2014 N 705/пр) (ред. от 12.04.2023)." title="Сноска 23">23</a></sup>.</p>
 <p style="text-align: justify;">В соответствии с требованиями руководящих и нормативных документов мероприятия по устойчивости функционирования городов, населенных пунктов и объектов предусматривают:</p>
 <p style="text-align: justify;">- рациональную застройку и размещение объектов экономики на территории муниципальных образований области, а также размещение зданий и сооружений на территории объекта;</p>
 <p style="text-align: justify;">- обеспечение защиты населения и персонала объектов;</p>
@@ -1984,7 +1987,7 @@ body {
 <p style="text-align: justify;">- создание и содержание в постоянной готовности систем оповещения и управления при ЧС;</p>
 <p style="text-align: justify;">- организация медицинского наблюдения и контроля за состоянием здоровья лиц, получивших различные дозы внешнего и внутреннего облучения.</p>
 <p style="text-align: justify;">Инженерно-технические мероприятия обеспечивают повышение физической устойчивости зданий, сооружений, технологического оборудования, инженерных коммуникаций и в целом производства, а также создание условий для его быстрого восстановления, повышения степени защищенности людей от поражающих факторов, возникающих при ЧС.</p>
-<p style="text-align: justify;">Инженерно-технические мероприятия по ПУФ объекта разрабатываются в соответствии с требованиями норм проектирования инженерно-технических мероприятий гражданской обороны (<a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СП 165.1325800.2014</a>. Свод правил. Инженерно-технические мероприятия по гражданской обороне. Актуализированная редакция <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СНиП 2.01.51-90</a>»<sup class="footnote-ref"><a href="#article-10-footnote-24" id="article-10-footnote-ref-24" data-popover="Утвержден и введен в действие приказом Минстроя России от 12.11.2014 N 705/пр (ред. от 12.04.2023)." title="Сноска 24">24</a></sup>), ведомственных норм, соответствующих государственных норм и стандартов.</p>
+<p style="text-align: justify;">Инженерно-технические мероприятия по ПУФ объекта разрабатываются в соответствии с требованиями норм проектирования инженерно-технических мероприятий гражданской обороны (<a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СП 165.1325800.2014.</a> Свод правил. Инженерно-технические мероприятия по гражданской обороне. Актуализированная редакция <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СНиП 2.01.51-90</a>»<sup class="footnote-ref"><a href="#article-10-footnote-24" id="article-10-footnote-ref-24" data-popover="Утвержден и введен в действие приказом Минстроя России от 12.11.2014 N 705/пр (ред. от 12.04.2023)." title="Сноска 24">24</a></sup>), ведомственных норм, соответствующих государственных норм и стандартов.</p>
 <p style="text-align: justify;">К числу инженерно-технических мероприятий относятся также и технологические мероприятия, проводимые в целях повышения устойчивости инженерно-технического комплекса объекта.</p>
 <p style="text-align: justify;">Специальные технологические мероприятия обеспечивают создание условий для перевода работы объекта на аварийный режим работы и обеспечения всех видов защиты и спасения людей, попавших в зоны ЧС, и быстрой ликвидации ЧС и ее последствий. К ним относятся:</p>
 <p style="text-align: justify;">- перевод объекта на аварийный режим работы;</p>
@@ -2041,9 +2044,9 @@ body {
 <p style="text-align: justify;"><b>Литература:</b></p>
 <p style="text-align: justify;">1. <a href="https://docs.google.com/document/d/1xs4bVcp7iR-16VnqFaqxPjrghrUiOTe2/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">Федеральный закон от 12.02.1998 N 28-ФЗ "О гражданской обороне"</a> (статья 2 «Задачи в области гражданской обороны»).</p>
 <p style="text-align: justify;">2. Положение о гражданской обороне в Российской Федерации (пункт 20), утвержденное <a href="https://docs.google.com/document/d/1HxNJUW-siWB9YgTj127M_39jXIPawdn0/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">Постановлением Правительства РФ от 26.11.2007 N 804</a>.</p>
-<p style="text-align: justify;">3. <a href="https://docs.google.com/document/d/1dCSb5K9Ec1-OA0l_fTb9aqeQW1feZOO6/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">ГОСТ Р 22.2.12-2020</a>. Национальный стандарт Российской Федерации. Безопасность в чрезвычайных ситуациях. Повышение устойчивости функционирования организаций в чрезвычайных ситуациях. Основные положения (утв. и введен в действие <a href="https://docs.google.com/document/d/1dCSb5K9Ec1-OA0l_fTb9aqeQW1feZOO6/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">приказом Росстандарта от 11.09.2020 N 645-ст</a>).</p>
+<p style="text-align: justify;">3. <a href="https://docs.google.com/document/d/1dCSb5K9Ec1-OA0l_fTb9aqeQW1feZOO6/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">ГОСТ Р 22.2.12-2020.</a> Национальный стандарт Российской Федерации. Безопасность в чрезвычайных ситуациях. Повышение устойчивости функционирования организаций в чрезвычайных ситуациях. Основные положения (утв. и введен в действие <a href="https://docs.google.com/document/d/1dCSb5K9Ec1-OA0l_fTb9aqeQW1feZOO6/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">приказом Росстандарта от 11.09.2020 N 645-ст</a>).</p>
 <p style="text-align: justify;">4. Методические рекомендации по защите основных производственных фондов организации в целях повышения устойчивости функционирования объектов экономики при военных конфликтах или вследствие этих конфликтов (направлены <a href="https://docs.google.com/document/d/11yEbSmOHgbfiZCKPdj70PUWfDvCs-AhM/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">письмом МЧС России от 18.08.2023 N М-ВЯ-102</a>).</p>
-<p style="text-align: justify;">5. <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СП 165.1325800.2014</a>. Свод правил. Инженерно-технические мероприятия по гражданской обороне. Актуализированная редакция <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СНиП 2.01.51-90</a> (утв. и введен в действие <a href="https://docs.google.com/document/d/1zqc4OrOK6RohpUzzfCuevLxa543-ZQRH/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">приказом Минстроя России от 12.11.2014 N 705/пр</a>) (ред. от 12.04.2023).</p>
+<p style="text-align: justify;">5. <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СП 165.1325800.2014.</a> Свод правил. Инженерно-технические мероприятия по гражданской обороне. Актуализированная редакция <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СНиП 2.01.51-90</a> (утв. и введен в действие <a href="https://docs.google.com/document/d/1zqc4OrOK6RohpUzzfCuevLxa543-ZQRH/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">приказом Минстроя России от 12.11.2014 N 705/пр</a>) (ред. от 12.04.2023).</p>
 <div class="footnotes-block"><h4>Сноски и примечания</h4><div class="footnote-item" id="article-10-footnote-21"><span class="footnote-number">21.</span>Статья 2 Федерального закона от 12.02.1998 N 28-ФЗ "О гражданской обороне". <a class="footnote-back" href="#article-10-footnote-ref-21" title="Вернуться к тексту">↩</a></div><div class="footnote-item" id="article-10-footnote-22"><span class="footnote-number">22.</span>Пункт 20 Положения о гражданской обороне в Российской Федерации, утвержденного Постановлением Правительства РФ от 26.11.2007 N 804. <a class="footnote-back" href="#article-10-footnote-ref-22" title="Вернуться к тексту">↩</a></div><div class="footnote-item" id="article-10-footnote-23"><span class="footnote-number">23.</span>Утвержден и введен в действие приказом Минстроя России от 12.11.2014 N 705/пр) (ред. от 12.04.2023). <a class="footnote-back" href="#article-10-footnote-ref-23" title="Вернуться к тексту">↩</a></div><div class="footnote-item" id="article-10-footnote-24"><span class="footnote-number">24.</span>Утвержден и введен в действие приказом Минстроя России от 12.11.2014 N 705/пр (ред. от 12.04.2023). <a class="footnote-back" href="#article-10-footnote-ref-24" title="Вернуться к тексту">↩</a></div></div></div></article>
 <article class="article" id="article-11" data-article="article-11" data-article-title="СВЕТОМАСКИРОВКА НАСЕЛЕННЫХ ПУНКТОВ И ОБЪЕКТОВ ЭКОНОМИКИ В ОТВЕТАХ И ВОПРОСАХ"><div class="article-top-bar">  <div class="article-label">Материал 11</div>  <div class="article-downloads"><a href="downloads/article-11.pdf" class="btn-dl btn-dl-pdf" target="_blank" title="Скачать в PDF"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5v1zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5v4zm4-3.5h-2v1h1.5V12H16v3h-1.5V9H18.5v1.5z"/></svg>PDF</a><a href="downloads/article-11.docx" class="btn-dl btn-dl-docx" download title="Скачать в DOCX"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>DOCX</a>  </div></div><div class="article-author">Архипов Г.С.<br>МГТУ им. Н.Э. Баумана</div><h3 class="article-title">СВЕТОМАСКИРОВКА НАСЕЛЕННЫХ ПУНКТОВ И ОБЪЕКТОВ ЭКОНОМИКИ В ОТВЕТАХ И ВОПРОСАХ</h3><div class="article-content"><p style="text-align: justify;"><b>Современные технологии, прежде всего развитие высокоточного оружия, электронных и лазерных систем навигации и определения целей, а также применение искусственного интеллекта кардинально изменили характер воздушных атак и иначе расставили приоритеты в области защиты от воздушного нападения. Насколько в настоящее время актуальны и эффективны мероприятия по светомаскировке территорий и объектов?</b></p>
 <p style="text-align: justify;">Ответ. Действительно, прогресс в области высокоточного оружия изменил подходы к организации световой маскировки территорий и объектов. В настоящее время современные вооружения воздушного нападения опираются, прежде всего, на электронные и лазерные системы навигации и определения целей. Если в Великую отечественную войну световая маскировка являлась основным видом маскировки территорий и объектов, то сейчас светомаскировка рассматривается как важная, но не единственная составляющая маскировочных мероприятий. При этом роль светомаскировки в отдельных случаях даже возрастает, например, при использовании противником FPV-дронов, имеющих камеры для передачи видеоизображения оператору.</p>
@@ -2063,7 +2066,7 @@ body {
 <p style="text-align: justify;">- <a href="https://docs.google.com/document/d/1HxNJUW-siWB9YgTj127M_39jXIPawdn0/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">Постановление Правительства РФ от 26.11.2007 N 804 "Об утверждении Положения о гражданской обороне в Российской Федерации"</a> (пункт 11 Положения);</p>
 <p style="text-align: justify;">- <a href="https://docs.google.com/document/d/1VPmddMuChERjaX3TfirurJZDtQBOnSVT/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">приказ МЧС России от 14.11.2008 N 687 "Об утверждении Положения об организации и ведении гражданской обороны в муниципальных образованиях и организациях"</a> (пп. 15.5 , 16.5 Положения);</p>
 <p style="text-align: justify;">- СП 264.1325800.2016. Свод правил. Световая маскировка населенных пунктов и объектов народного хозяйства. Актуализированная редакция <a href="https://docs.google.com/document/d/1Yo49UUFIvu88BdmaG-Fgo7esUJhPUBIg/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СНиП 2.01.53-84</a> (утв. <a href="https://docs.google.com/document/d/1Yo49UUFIvu88BdmaG-Fgo7esUJhPUBIg/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">приказом Минстроя России от 03.12.2016 N 880/пр</a>);</p>
-<p style="text-align: justify;">- <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СП 165.1325800.2014</a>. Свод правил. Инженерно-технические мероприятия по гражданской обороне. Актуализированная редакция <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СНиП 2.01.51-90</a> (утв. и введен в действие <a href="https://docs.google.com/document/d/1zqc4OrOK6RohpUzzfCuevLxa543-ZQRH/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">приказом Минстроя России от 12.11.2014 N 705/пр</a>) (ред. от 12.04.2023) (глава 10 «Требования к маскировочным мероприятиям»);</p>
+<p style="text-align: justify;">- <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СП 165.1325800.2014.</a> Свод правил. Инженерно-технические мероприятия по гражданской обороне. Актуализированная редакция <a href="https://docs.google.com/document/d/1k8eYCVGTPSS1vgUVcENNJHpTSvzLcohj/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">СНиП 2.01.51-90</a> (утв. и введен в действие <a href="https://docs.google.com/document/d/1zqc4OrOK6RohpUzzfCuevLxa543-ZQRH/edit?usp=drivesdk&amp;ouid=107636637261335910720&amp;rtpof=true&amp;sd=true" class="doc-official-link" target="_blank" rel="noopener" title="Открыть документ">приказом Минстроя России от 12.11.2014 N 705/пр</a>) (ред. от 12.04.2023) (глава 10 «Требования к маскировочным мероприятиям»);</p>
 <p style="text-align: justify;">- методические рекомендации по определению перечня объектов, подлежащих маскировке от современных средств поражения (Всероссийский научно-исследовательский институт по проблемам гражданской обороны и чрезвычайных ситуаций, 2010).</p>
 <p style="text-align: justify;">В субъектах РФ и муниципальных образованиях вопросы световой и других видов маскировки обычно прописываются в региональных и муниципальных Положениях об организации и ведении гражданской обороны. Также на региональном и муниципальном уровнях по данному вопросу могут разрабатываться и утверждаться отдельные положения, инструкции и/или методические рекомендации по светомаскировке.</p>
 <p style="text-align: justify;">Образцы документов по организации световой маскировки можно найти в информационной системе «Нормативно-правовые акты и методические материалы по ГО и защите от ЧС». Подписчикам нашего журнала система предоставляется бесплатно. Для этого необходимо выслать по E-mail zdrav1@mail.ru копию документа, подтверждающего подписку.</p>
@@ -2105,7 +2108,6 @@ body {
 
 <script>
 (function(){
-  // Переключение тем
   const themeBtns = document.querySelectorAll('.theme-toggle');
   const savedTheme = localStorage.getItem('journal-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   
@@ -2123,14 +2125,21 @@ body {
     });
   });
 
-  // Мобильный сайдбар
   const sidebar = document.getElementById('journalSidebar');
   const tocBtn = document.getElementById('mobileTocButton');
   if (tocBtn) {
-    tocBtn.addEventListener('click', () => sidebar.classList.toggle('open'));
+    tocBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sidebar.classList.toggle('open');
+    });
+    
+    document.addEventListener('click', (e) => {
+      if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && e.target !== tocBtn) {
+        sidebar.classList.remove('open');
+      }
+    });
   }
 
-  // Прогресс чтения, Sticky Header и Наверх
   const progress = document.getElementById('readingProgress');
   const backToTop = document.getElementById('backToTop');
   const stickyHeader = document.getElementById('stickyHeader');
@@ -2150,7 +2159,6 @@ body {
     progress.style.width = (sh ? (st / sh * 100) : 0) + '%';
     backToTop.classList.toggle('visible', st > 400);
 
-    // Показ липкой шапки
     stickyHeader.classList.toggle('visible', st > 250);
 
     let currentArticleId = null;
@@ -2171,12 +2179,10 @@ body {
       currentArticleTitle = articles[0].dataset.articleTitle;
     }
 
-    // Обновление липкой шапки
     if (currentArticleTitle) {
       stickyTitle.textContent = currentArticleTitle;
     }
 
-    // Подсветка карточек в меню
     linksMap.forEach((link, id) => {
       if (id === currentArticleId) {
         if (!link.classList.contains('active')) {
@@ -2193,7 +2199,6 @@ body {
   window.addEventListener('resize', updateActiveArticle, { passive: true });
   updateActiveArticle();
 
-  // Lightbox
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = lightbox.querySelector('img');
   document.querySelectorAll('.lightbox-trigger').forEach(img => {
@@ -2204,7 +2209,6 @@ body {
   });
   lightbox.addEventListener('click', () => lightbox.classList.remove('visible'));
 
-  // Поповеры
   const popover = document.getElementById('footnotePopover');
   document.querySelectorAll('.footnote-ref a').forEach(ref => {
     ref.addEventListener('mouseenter', () => {
