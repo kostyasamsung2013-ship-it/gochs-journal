@@ -262,6 +262,38 @@ body {
 </style>
 </head>
 <body id="top">
+  <script>
+const JOURNAL_PASSWORD = "Gochs2026";
+const PASSWORD_KEY = "gochsJournalAccess";
+
+if (localStorage.getItem(PASSWORD_KEY) !== "granted") {
+    const password = prompt("Введите пароль для доступа к журналу:");
+
+    if (password === JOURNAL_PASSWORD) {
+        localStorage.setItem(PASSWORD_KEY, "granted");
+    } else {
+        document.body.innerHTML = `
+            <div style="
+                min-height:100vh;
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                background:#101820;
+                color:white;
+                font-family:Arial,sans-serif;
+                text-align:center;
+                padding:30px;
+            ">
+                <div>
+                    <h2>Доступ ограничен</h2>
+                    <p>Неверный пароль.</p>
+                    <a href="../" style="color:white;">Вернуться в архив</a>
+                </div>
+            </div>
+        `;
+    }
+}
+</script>
 <div class="reading-progress"><span id="readingProgress"></span></div>
 
 <button class="mobile-toc-button" id="mobileTocButton" type="button" aria-label="Открыть содержание">☰</button>
