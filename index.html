@@ -1,10 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Гражданская оборона и защита от чрезвычайных ситуаций — Архив журнала</title>
+    <title>Архив журнала «Гражданская оборона и защита от чрезвычайных ситуаций»</title>
 
     <meta name="description"
           content="Архив научно-практического журнала «Гражданская оборона и защита от чрезвычайных ситуаций в учреждениях, организациях и на предприятиях».">
@@ -16,178 +17,360 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f5f7;
-            color: #20242a;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                Helvetica,
+                sans-serif;
+            background: #f3f4f6;
+            color: #1d2329;
         }
+
+        a {
+            color: inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
 
         .header {
             background: #20252b;
-            color: white;
-            padding: 55px 20px 50px;
-            text-align: center;
+            color: #ffffff;
+            border-bottom: 1px solid #343a40;
+        }
+
+        .header-inner {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 58px 0 52px;
+        }
+
+        .header-label {
+            margin-bottom: 22px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #b9c0c7;
         }
 
         .header h1 {
-            max-width: 1100px;
-            margin: 0 auto 18px;
-            font-size: clamp(28px, 4vw, 52px);
-            line-height: 1.08;
-            font-weight: 700;
+            max-width: 1050px;
+            margin: 0;
+            font-size: clamp(32px, 5vw, 58px);
+            line-height: 1.04;
+            letter-spacing: -0.035em;
+            font-weight: 750;
+        }
+
+        .header-description {
+            max-width: 820px;
+            margin: 25px 0 0;
+            font-size: 18px;
+            line-height: 1.55;
+            color: #d2d6da;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .container {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 68px 0 0;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 28px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            font-size: 30px;
+            line-height: 1.15;
             letter-spacing: -0.02em;
         }
 
-        .header p {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 17px;
-            line-height: 1.5;
-            color: #d8dce1;
+        .section-heading span {
+            color: #777e86;
+            font-size: 14px;
         }
 
-        .container {
-            width: min(1180px, calc(100% - 32px));
-            margin: 0 auto;
-        }
+        /* =========================
+           LATEST ISSUE
+        ========================= */
 
         .latest {
-            padding: 55px 0 35px;
-        }
-
-        .section-title {
-            margin: 0 0 25px;
-            font-size: 30px;
-            line-height: 1.2;
-        }
-
-        .latest-card {
             display: grid;
-            grid-template-columns: 330px 1fr;
-            gap: 42px;
-            align-items: center;
-            background: white;
+            grid-template-columns: 340px minmax(0, 1fr);
+            gap: 52px;
+            padding: 32px;
+            background: #ffffff;
+            border: 1px solid #e1e4e7;
             border-radius: 14px;
-            padding: 28px;
-            box-shadow: 0 5px 25px rgba(0,0,0,.07);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.055);
         }
 
-       .cover-placeholder {
-    aspect-ratio: 2 / 3;
-    background: #e8eaed;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.cover-placeholder img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-}
-       
-        .latest-info h3 {
-            margin: 0 0 12px;
-            font-size: 34px;
+        .cover {
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
+            aspect-ratio: 2 / 3;
+            overflow: hidden;
+            border-radius: 6px;
+            background: #e8eaed;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.14);
         }
 
-        .latest-info p {
-            font-size: 17px;
-            line-height: 1.6;
-            color: #555b63;
+        .cover img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .latest-content {
+            align-self: center;
+            padding: 15px 20px 15px 0;
+        }
+
+        .issue-label {
+            margin-bottom: 14px;
+            color: #707780;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .latest-content h3 {
+            margin: 0 0 20px;
+            font-size: clamp(34px, 4vw, 48px);
+            line-height: 1.05;
+            letter-spacing: -0.035em;
+        }
+
+        .latest-content p {
+            max-width: 690px;
             margin: 0 0 25px;
+            color: #565e66;
+            font-size: 17px;
+            line-height: 1.65;
+        }
+
+        .topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .topic {
+            padding: 7px 10px;
+            border: 1px solid #dfe3e7;
+            border-radius: 5px;
+            color: #59616a;
+            background: #f8f9fa;
+            font-size: 12px;
+            line-height: 1;
         }
 
         .button {
-            display: inline-block;
-            padding: 14px 25px;
-            border-radius: 7px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 22px;
+            border-radius: 6px;
             background: #20252b;
-            color: white;
+            color: #ffffff;
             text-decoration: none;
+            font-size: 15px;
             font-weight: 700;
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
         }
 
         .button:hover {
-            opacity: .88;
+            background: #343b43;
+            transform: translateY(-1px);
         }
 
-        .archive {
-            padding: 35px 0 70px;
+        /* =========================
+           ARCHIVE
+        ========================= */
+
+        .archive-section {
+            padding-bottom: 85px;
         }
 
         .year {
-            margin: 38px 0 18px;
-            font-size: 25px;
-            font-weight: 700;
+            margin: 44px 0 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #d8dce0;
+            font-size: 24px;
+            font-weight: 750;
+            letter-spacing: -0.02em;
         }
 
         .issues {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
         }
 
-        .issue {
-            background: white;
-            border-radius: 12px;
-            padding: 22px;
-            box-shadow: 0 4px 18px rgba(0,0,0,.06);
+        .issue-card {
+            min-height: 180px;
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid #e1e4e7;
+            border-radius: 10px;
+            transition:
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .issue-card.active {
+            cursor: pointer;
+        }
+
+        .issue-card.active:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
         }
 
         .issue-number {
+            margin-bottom: 10px;
             font-size: 25px;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-weight: 750;
+            letter-spacing: -0.02em;
         }
 
-        .issue-description {
-            color: #656b73;
-            line-height: 1.45;
-            margin-bottom: 18px;
+        .issue-year {
+            margin-bottom: 17px;
+            color: #858c94;
+            font-size: 14px;
         }
 
-        .issue a {
+        .issue-link {
             color: #20252b;
+            font-size: 14px;
             font-weight: 700;
             text-decoration: none;
         }
 
-        .issue a:hover {
+        .issue-link:hover {
             text-decoration: underline;
         }
 
-        footer {
-            background: #20252b;
-            color: #bfc4ca;
-            text-align: center;
-            padding: 28px 20px;
+        .issue-placeholder {
+            color: #969da5;
             font-size: 14px;
         }
 
-        @media (max-width: 700px) {
-            .header {
-                padding: 40px 18px;
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #343a40;
+            background: #20252b;
+            color: #aeb5bc;
+        }
+
+        .footer-inner {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 30px 0;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 820px) {
+
+            .header-inner {
+                padding: 44px 0 42px;
             }
 
-            .latest-card {
+            .latest {
                 grid-template-columns: 1fr;
-                padding: 20px;
+                gap: 34px;
+                padding: 22px;
             }
 
-            .cover-placeholder {
-                max-width: 300px;
-                width: 100%;
-                margin: auto;
+            .cover {
+                max-width: 310px;
             }
 
-            .latest-info h3 {
-                font-size: 28px;
+            .latest-content {
+                padding: 0;
             }
 
-            .section-title {
+            .issues {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 560px) {
+
+            .container,
+            .header-inner,
+            .footer-inner {
+                width: min(100% - 28px, 1180px);
+            }
+
+            .header h1 {
+                font-size: 34px;
+            }
+
+            .header-description {
+                font-size: 16px;
+            }
+
+            .section {
+                padding-top: 48px;
+            }
+
+            .section-heading h2 {
                 font-size: 26px;
+            }
+
+            .latest-content h3 {
+                font-size: 36px;
+            }
+
+            .latest-content p {
+                font-size: 16px;
+            }
+
+            .issues {
+                grid-template-columns: 1fr;
+            }
+
+            .archive-section {
+                padding-bottom: 60px;
             }
         }
     </style>
@@ -196,78 +379,155 @@
 <body>
 
 <header class="header">
-    <h1>Гражданская оборона и защита от чрезвычайных ситуаций</h1>
+    <div class="header-inner">
 
-    <p>
-        Научно-практический журнал для специалистов учреждений,
-        организаций и предприятий
-    </p>
+        <div class="header-label">
+            Научно-практический журнал
+        </div>
+
+        <h1>
+            Гражданская оборона и защита от чрезвычайных ситуаций
+        </h1>
+
+        <p class="header-description">
+            В учреждениях, организациях и на предприятиях
+        </p>
+
+    </div>
 </header>
+
 
 <main class="container">
 
-    <section class="latest">
-        <h2 class="section-title">Последний выпуск</h2>
+    <!-- Последний выпуск -->
 
-        <div class="latest-card">
+    <section class="section">
 
-            <div class="cover-placeholder">
-    <img src="issue10/images/cover10.jpg"
-         alt="Обложка журнала № 10, 2026">
-</div>
+        <div class="section-heading">
+            <h2>Последний выпуск</h2>
+            <span>2026</span>
+        </div>
 
-            <div class="latest-info">
-                <h3>№ 10 • 2026</h3>
+        <div class="latest">
+
+            <div class="cover">
+                <img
+                    src="issue10/images/cover10.jpg"
+                    alt="Обложка журнала № 10, 2026"
+                >
+            </div>
+
+            <div class="latest-content">
+
+                <div class="issue-label">
+                    Выпуск № 10 • 2026
+                </div>
+
+                <h3>
+                    Гражданская оборона<br>
+                    и защита от ЧС
+                </h3>
 
                 <p>
-                    Гражданская оборона и защита от чрезвычайных ситуаций
-                    в учреждениях, организациях и на предприятиях.
+                    Профессиональные материалы по гражданской обороне,
+                    защите от чрезвычайных ситуаций, подготовке населения,
+                    защите объектов и организации мероприятий ГО и ЧС.
                 </p>
 
+                <div class="topics">
+
+                    <span class="topic">Защита объектов</span>
+                    <span class="topic">Защита от ЧС</span>
+                    <span class="topic">Обучение и тренировки</span>
+                    <span class="topic">Спасательные службы</span>
+                    <span class="topic">ЗСГО</span>
+                    <span class="topic">Подготовка населения</span>
+                    <span class="topic">Методические материалы</span>
+
+                </div>
+
                 <a class="button" href="issue10/">
-                    Читать журнал
+                    Читать выпуск
                 </a>
+
             </div>
 
         </div>
+
     </section>
 
 
-    <section class="archive">
+    <!-- Архив -->
 
-        <h2 class="section-title">Архив выпусков</h2>
+    <section class="section archive-section">
 
-        <div class="year">2026</div>
+        <div class="section-heading">
+            <h2>Архив выпусков</h2>
+        </div>
+
+
+        <div class="year">
+            2026
+        </div>
 
         <div class="issues">
 
-            <div class="issue">
-                <div class="issue-number">№ 10</div>
+            <!-- №10 -->
 
-                <div class="issue-description">
-                    Выпуск за 2026 год
+            <article class="issue-card active"
+                     onclick="window.location.href='issue10/'">
+
+                <div class="issue-number">
+                    № 10
                 </div>
 
-                <a href="issue10/">
+                <div class="issue-year">
+                    2026
+                </div>
+
+                <a class="issue-link" href="issue10/">
                     Открыть журнал →
                 </a>
-            </div>
 
-            <div class="issue">
-                <div class="issue-number">№ 9</div>
+            </article>
 
-                <div class="issue-description">
+
+            <!-- №9 -->
+
+            <article class="issue-card">
+
+                <div class="issue-number">
+                    № 9
+                </div>
+
+                <div class="issue-year">
+                    2026
+                </div>
+
+                <div class="issue-placeholder">
                     Выпуск будет добавлен
                 </div>
-            </div>
 
-            <div class="issue">
-                <div class="issue-number">№ 8</div>
+            </article>
 
-                <div class="issue-description">
+
+            <!-- №8 -->
+
+            <article class="issue-card">
+
+                <div class="issue-number">
+                    № 8
+                </div>
+
+                <div class="issue-year">
+                    2026
+                </div>
+
+                <div class="issue-placeholder">
                     Выпуск будет добавлен
                 </div>
-            </div>
+
+            </article>
 
         </div>
 
@@ -275,9 +535,15 @@
 
 </main>
 
+
 <footer>
-    © 2026 «Гражданская оборона и защита от чрезвычайных ситуаций»
+
+    <div class="footer-inner">
+        © 2026 «Гражданская оборона и защита от чрезвычайных ситуаций»
+    </div>
+
 </footer>
 
 </body>
 </html>
+```
