@@ -11,440 +11,1119 @@
 
     <meta name="robots" content="noindex, noarchive">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        html {
-            scroll-behavior: smooth;
-        }
+   <style>
+    :root {
+        --bg-main: #eef1f4;
+        --bg-card: #ffffff;
+        --bg-card-hover: #f8fafc;
 
-        body {
-            margin: 0;
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Arial,
-                Helvetica,
-                sans-serif;
-            background: #f3f4f6;
-            color: #1d2329;
-        }
+        --border-color: #d8e0e7;
+        --border-hover: #aebfd0;
 
-        a {
-            color: inherit;
-        }
+        --text-primary: #172330;
+        --text-secondary: #526171;
+        --text-muted: #7a8794;
 
-        /* =========================
-           HEADER
-        ========================= */
+        --accent-blue: #234f7d;
+        --accent-blue-dark: #173a5d;
+        --accent-blue-light: #eaf1f7;
+        --accent-glow: rgba(35, 79, 125, 0.16);
+
+        --accent-orange: #b86b2d;
+
+        --radius-lg: 14px;
+        --radius-md: 10px;
+        --radius-sm: 6px;
+
+        --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+
+    /* =========================
+       BASE
+       ========================= */
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family:
+            'Inter',
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Arial,
+            sans-serif;
+
+        background: var(--bg-main);
+        color: var(--text-primary);
+
+        line-height: 1.5;
+
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+
+    /* =========================
+       BACKGROUND
+       ========================= */
+
+    .grid-bg {
+        position: fixed;
+        inset: 0;
+
+        background:
+            radial-gradient(
+                circle at 50% 0%,
+                rgba(35, 79, 125, 0.07) 0%,
+                transparent 42%
+            );
+
+        pointer-events: none;
+        z-index: 0;
+    }
+
+
+    /* =========================
+       CONTAINER
+       ========================= */
+
+    .container {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+    }
+
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    .header {
+        position: relative;
+        z-index: 1;
+
+        padding: 27px 0 25px;
+
+        background: rgba(255, 255, 255, 0.97);
+
+        border-bottom: 1px solid var(--border-color);
+
+        box-shadow:
+            0 1px 0 rgba(20, 40, 60, 0.02);
+    }
+
+
+    /* Верхняя строка */
+
+    .header-top-meta {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        flex-wrap: wrap;
+
+        margin-bottom: 13px;
+    }
+
+
+    /* Научно-практический журнал */
+
+    .header-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        padding: 6px 10px;
+
+        border: 1px solid #cbd9e5;
+        border-radius: 5px;
+
+        background: #f3f7fa;
+
+        color: var(--accent-blue);
+
+        font-size: 10px;
+        font-weight: 700;
+
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .header-label-dot {
+        width: 6px;
+        height: 6px;
+
+        border-radius: 50%;
+
+        background: var(--accent-blue);
+    }
+
+
+    /* Онлайн-версия */
+
+    .header-online-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+
+        padding: 6px 10px;
+
+        border: 1px solid #d7e0e7;
+        border-radius: 5px;
+
+        background: #f8fafb;
+
+        color: var(--text-muted);
+
+        font-size: 10px;
+        font-weight: 600;
+
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+    }
+
+    .header-online-badge::before {
+        content: "";
+
+        width: 6px;
+        height: 6px;
+
+        border-radius: 50%;
+
+        background: #4f8a64;
+    }
+
+
+    /* Главное название журнала */
+
+    .header h1 {
+        max-width: 900px;
+
+        font-size: clamp(28px, 3.2vw, 40px);
+
+        line-height: 1.08;
+
+        letter-spacing: -0.03em;
+
+        font-weight: 750;
+
+        color: var(--text-primary);
+    }
+
+
+    /* Если описание понадобится позже */
+
+    .header-description {
+        display: none;
+
+        max-width: 820px;
+
+        margin-top: 15px;
+
+        font-size: 16px;
+        line-height: 1.55;
+
+        color: var(--text-secondary);
+    }
+
+
+    /* =========================
+       SECTIONS
+       ========================= */
+
+    .section {
+        padding: 30px 0 0;
+
+        position: relative;
+        z-index: 1;
+    }
+
+
+    .section-heading {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+
+        gap: 20px;
+
+        margin-bottom: 15px;
+
+        padding-bottom: 10px;
+
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-heading h2 {
+        font-size: 23px;
+
+        line-height: 1.2;
+
+        letter-spacing: -0.02em;
+
+        font-weight: 750;
+
+        color: var(--text-primary);
+    }
+
+    .section-heading span {
+        color: var(--text-muted);
+
+        font-size: 12px;
+
+        font-weight: 500;
+    }
+
+
+    /* =========================
+       CURRENT ISSUE
+       ========================= */
+
+    .latest {
+        display: grid;
+
+        grid-template-columns: 250px minmax(0, 1fr);
+
+        gap: 34px;
+
+        padding: 24px 30px 24px 26px;
+
+        background: var(--bg-card);
+
+        border: 1px solid var(--border-color);
+
+        border-radius: var(--radius-lg);
+
+        box-shadow:
+            0 8px 22px rgba(25, 45, 65, 0.07);
+
+        position: relative;
+
+        overflow: hidden;
+    }
+
+
+    /* Синяя вертикальная линия */
+
+    .latest::before {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 4px;
+        height: 100%;
+
+        background: var(--accent-blue);
+    }
+
+
+    /* =========================
+       COVER
+       ========================= */
+
+    .cover {
+        width: 100%;
+
+        max-width: 250px;
+
+        margin: 0 auto;
+
+        aspect-ratio: 2 / 3;
+
+        overflow: hidden;
+
+        border-radius: 6px;
+
+        background: #e8edf1;
+
+        border: 1px solid #cfd8e0;
+
+        box-shadow:
+            0 8px 18px rgba(25, 45, 65, 0.14);
+    }
+
+    .cover img {
+        width: 100%;
+        height: 100%;
+
+        display: block;
+
+        object-fit: cover;
+    }
+
+
+    /* =========================
+       CURRENT ISSUE CONTENT
+       ========================= */
+
+    .latest-content {
+        align-self: center;
+    }
+
+
+    .issue-label {
+        margin-bottom: 10px;
+
+        color: var(--accent-blue);
+
+        font-size: 11px;
+
+        font-weight: 750;
+
+        letter-spacing: 0.08em;
+
+        text-transform: uppercase;
+    }
+
+
+    .latest-content h3 {
+        margin-bottom: 12px;
+
+        font-size: clamp(28px, 3vw, 38px);
+
+        line-height: 1.08;
+
+        letter-spacing: -0.03em;
+
+        font-weight: 750;
+
+        color: var(--text-primary);
+    }
+
+
+    .latest-content p {
+        max-width: 680px;
+
+        margin-bottom: 17px;
+
+        color: var(--text-secondary);
+
+        font-size: 15px;
+
+        line-height: 1.55;
+    }
+
+
+    /* =========================
+       TOPICS
+       ========================= */
+
+    .topics {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 6px;
+
+        margin-bottom: 19px;
+    }
+
+    .topic {
+        padding: 6px 9px;
+
+        border: 1px solid #d4dfe8;
+
+        border-radius: 5px;
+
+        background: var(--accent-blue-light);
+
+        color: #465f76;
+
+        font-size: 11px;
+
+        line-height: 1.15;
+    }
+
+
+    /* =========================
+       BUTTON
+       ========================= */
+
+    .button {
+        display: inline-flex;
+
+        align-items: center;
+        justify-content: center;
+
+        min-height: 43px;
+
+        padding: 0 21px;
+
+        border-radius: 7px;
+
+        background: var(--accent-blue);
+
+        color: #fff;
+
+        font-size: 13px;
+
+        font-weight: 700;
+
+        box-shadow:
+            0 5px 14px rgba(35, 79, 125, 0.20);
+
+        transition: var(--transition);
+    }
+
+    .button:hover {
+        background: var(--accent-blue-dark);
+
+        transform: translateY(-2px);
+
+        box-shadow:
+            0 8px 20px rgba(35, 79, 125, 0.25);
+    }
+
+
+    /* =========================
+       ARCHIVE
+       ========================= */
+
+    .archive-section {
+        padding-bottom: 70px;
+    }
+
+
+    .year {
+        display: flex;
+
+        align-items: center;
+
+        gap: 15px;
+
+        margin: 34px 0 18px;
+
+        font-size: 21px;
+
+        font-weight: 750;
+
+        letter-spacing: -0.02em;
+
+        color: var(--accent-blue);
+    }
+
+    .year::after {
+        content: "";
+
+        flex: 1;
+
+        height: 1px;
+
+        background: var(--border-color);
+    }
+
+
+    .issues {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+
+    /* Карточка выпуска */
+
+    .issue-card {
+        background: var(--bg-card);
+
+        border: 1px solid var(--border-color);
+
+        border-radius: var(--radius-md);
+
+        padding: 21px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: space-between;
+
+        min-height: 175px;
+
+        position: relative;
+
+        transition: var(--transition);
+    }
+
+
+    .issue-card.active {
+        cursor: pointer;
+
+        border-color: #c4d3df;
+    }
+
+
+    .issue-card.active:hover {
+        border-color: var(--accent-blue);
+
+        transform: translateY(-3px);
+
+        background: #fff;
+
+        box-shadow:
+            0 12px 28px rgba(25, 45, 65, 0.10);
+    }
+
+
+    .issue-card-top {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+
+    .issue-number {
+        font-size: 27px;
+
+        font-weight: 800;
+
+        letter-spacing: -0.03em;
+
+        color: var(--text-primary);
+
+        margin-bottom: 2px;
+    }
+
+
+    .issue-year {
+        color: var(--text-muted);
+
+        font-size: 12px;
+    }
+
+
+    /* Статусы */
+
+    .status-badge {
+        font-size: 9px;
+
+        font-weight: 700;
+
+        padding: 5px 7px;
+
+        border-radius: 4px;
+
+        text-transform: uppercase;
+
+        letter-spacing: 0.04em;
+    }
+
+
+    .status-available {
+        background: #edf6f0;
+
+        color: #3f7755;
+
+        border: 1px solid #cfe2d5;
+    }
+
+
+    .status-disabled {
+        background: #f3f5f7;
+
+        color: #8a959f;
+
+        border: 1px solid #dce2e7;
+    }
+
+
+    .issue-card-bottom {
+        border-top: 1px solid var(--border-color);
+
+        padding-top: 13px;
+
+        margin-top: 17px;
+    }
+
+
+    .issue-link {
+        color: var(--accent-blue);
+
+        font-size: 12px;
+
+        font-weight: 700;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 6px;
+    }
+
+
+    .issue-card.active:hover .issue-link {
+        color: var(--accent-blue-dark);
+    }
+
+
+    .issue-placeholder {
+        color: var(--text-muted);
+
+        font-size: 12px;
+    }
+
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+        border-top: 1px solid var(--border-color);
+
+        background: #e4e9ee;
+
+        color: #75818d;
+    }
+
+
+    .footer-inner {
+        width: min(1180px, calc(100% - 40px));
+
+        margin: 0 auto;
+
+        padding: 27px 0;
+
+        font-size: 11px;
+
+        line-height: 1.5;
+
+        text-align: center;
+    }
+
+
+    /* =========================
+       PASSWORD WINDOW
+       ========================= */
+
+    .auth-overlay {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background: rgba(20, 35, 50, 0.50);
+
+        backdrop-filter: blur(10px);
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        z-index: 1000;
+
+        opacity: 0;
+
+        pointer-events: none;
+
+        transition: var(--transition);
+    }
+
+
+    .auth-overlay.active {
+        opacity: 1;
+
+        pointer-events: auto;
+    }
+
+
+    .auth-modal {
+        width: min(400px, calc(100% - 32px));
+
+        padding: 36px;
+
+        background: #fff;
+
+        border: 1px solid #d4dee6;
+
+        border-radius: var(--radius-lg);
+
+        box-shadow:
+            0 25px 60px rgba(20, 35, 50, 0.25);
+
+        text-align: center;
+    }
+
+
+    .auth-modal h2 {
+        color: var(--text-primary);
+
+        font-size: 21px;
+
+        margin-bottom: 8px;
+    }
+
+
+    .auth-modal p {
+        color: var(--text-secondary);
+
+        font-size: 14px;
+
+        margin-bottom: 21px;
+    }
+
+
+    .auth-input {
+        width: 100%;
+
+        padding: 12px 16px;
+
+        background: #f8fafb;
+
+        border: 1px solid #cfd9e1;
+
+        border-radius: var(--radius-md);
+
+        color: var(--text-primary);
+
+        font-size: 15px;
+
+        margin-bottom: 13px;
+
+        text-align: center;
+
+        outline: none;
+
+        transition: var(--transition);
+    }
+
+
+    .auth-input:focus {
+        background: #fff;
+
+        border-color: var(--accent-blue);
+
+        box-shadow:
+            0 0 0 3px var(--accent-glow);
+    }
+
+
+    .auth-btn {
+        width: 100%;
+
+        padding: 12px;
+
+        background: var(--accent-blue);
+
+        color: #fff;
+
+        border: none;
+
+        border-radius: var(--radius-md);
+
+        font-weight: 700;
+
+        cursor: pointer;
+
+        transition: var(--transition);
+    }
+
+
+    .auth-btn:hover {
+        background: var(--accent-blue-dark);
+    }
+
+
+    .auth-error {
+        color: #b34b4b;
+
+        font-size: 13px;
+
+        margin-top: 12px;
+
+        display: none;
+    }
+
+
+    /* =========================
+       TABLET
+       ========================= */
+
+    @media (max-width: 820px) {
 
         .header {
-            background: #20252b;
-            color: #ffffff;
-            border-bottom: 1px solid #343a40;
-        }
-
-        .header-inner {
-            width: min(1180px, calc(100% - 40px));
-            margin: 0 auto;
-            padding: 58px 0 52px;
-        }
-
-        .header-label {
-            margin-bottom: 22px;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: #b9c0c7;
+            padding: 25px 0 23px;
         }
 
         .header h1 {
-            max-width: 1050px;
-            margin: 0;
-            font-size: clamp(32px, 5vw, 58px);
-            line-height: 1.04;
-            letter-spacing: -0.035em;
-            font-weight: 750;
-        }
+            max-width: 760px;
 
-        .header-description {
-            max-width: 820px;
-            margin: 25px 0 0;
-            font-size: 18px;
-            line-height: 1.55;
-            color: #d2d6da;
-        }
-
-        /* =========================
-           MAIN
-        ========================= */
-
-        .container {
-            width: min(1180px, calc(100% - 40px));
-            margin: 0 auto;
+            font-size: 34px;
         }
 
         .section {
-            padding: 68px 0 0;
+            padding-top: 27px;
         }
-
-        .section-heading {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 25px;
-            margin-bottom: 28px;
-        }
-
-        .section-heading h2 {
-            margin: 0;
-            font-size: 30px;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-        }
-
-        .section-heading span {
-            color: #777e86;
-            font-size: 14px;
-        }
-
-        /* =========================
-           LATEST ISSUE
-        ========================= */
 
         .latest {
-            display: grid;
-            grid-template-columns: 340px minmax(0, 1fr);
-            gap: 52px;
-            padding: 32px;
-            background: #ffffff;
-            border: 1px solid #e1e4e7;
-            border-radius: 14px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.055);
+            grid-template-columns: 220px minmax(0, 1fr);
+
+            gap: 27px;
+
+            padding: 21px 24px 21px 22px;
         }
 
         .cover {
-            width: 100%;
-            max-width: 340px;
-            margin: 0 auto;
-            aspect-ratio: 2 / 3;
-            overflow: hidden;
-            border-radius: 6px;
-            background: #e8eaed;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.14);
-        }
-
-        .cover img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-        }
-
-        .latest-content {
-            align-self: center;
-            padding: 15px 20px 15px 0;
-        }
-
-        .issue-label {
-            margin-bottom: 14px;
-            color: #707780;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.13em;
-            text-transform: uppercase;
+            max-width: 220px;
         }
 
         .latest-content h3 {
-            margin: 0 0 20px;
-            font-size: clamp(34px, 4vw, 48px);
-            line-height: 1.05;
-            letter-spacing: -0.035em;
+            font-size: 30px;
         }
 
         .latest-content p {
-            max-width: 690px;
-            margin: 0 0 25px;
-            color: #565e66;
-            font-size: 17px;
-            line-height: 1.65;
+            font-size: 14px;
         }
 
         .topics {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 30px;
+            margin-bottom: 16px;
         }
 
         .topic {
-            padding: 7px 10px;
-            border: 1px solid #dfe3e7;
-            border-radius: 5px;
-            color: #59616a;
-            background: #f8f9fa;
-            font-size: 12px;
-            line-height: 1;
-        }
+            font-size: 10px;
 
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 48px;
-            padding: 0 22px;
-            border-radius: 6px;
-            background: #20252b;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 700;
-            transition:
-                background 0.2s ease,
-                transform 0.2s ease;
-        }
-
-        .button:hover {
-            background: #343b43;
-            transform: translateY(-1px);
-        }
-
-        /* =========================
-           ARCHIVE
-        ========================= */
-
-        .archive-section {
-            padding-bottom: 85px;
-        }
-
-        .year {
-            margin: 44px 0 18px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #d8dce0;
-            font-size: 24px;
-            font-weight: 750;
-            letter-spacing: -0.02em;
+            padding: 5px 8px;
         }
 
         .issues {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
         }
+    }
+
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 560px) {
+
+        .container,
+        .footer-inner {
+            width: min(100% - 28px, 1180px);
+        }
+
+
+        .header {
+            padding: 23px 0 21px;
+        }
+
+
+        .header-top-meta {
+            margin-bottom: 11px;
+        }
+
+
+        .header h1 {
+            font-size: 29px;
+
+            line-height: 1.08;
+
+            letter-spacing: -0.025em;
+        }
+
+
+        .section {
+            padding-top: 24px;
+        }
+
+
+        .section-heading {
+            align-items: flex-start;
+
+            flex-direction: column;
+
+            gap: 4px;
+
+            margin-bottom: 13px;
+        }
+
+
+        .section-heading h2 {
+            font-size: 21px;
+        }
+
+
+        .latest {
+            grid-template-columns: 1fr;
+
+            gap: 22px;
+
+            padding: 19px;
+        }
+
+
+        .cover {
+            max-width: 220px;
+        }
+
+
+        .latest-content {
+            align-self: auto;
+        }
+
+
+        .latest-content h3 {
+            font-size: 29px;
+
+            margin-bottom: 11px;
+        }
+
+
+        .latest-content p {
+            font-size: 14px;
+
+            line-height: 1.55;
+
+            margin-bottom: 15px;
+        }
+
+
+        .topics {
+            gap: 5px;
+
+            margin-bottom: 17px;
+        }
+
+
+        .topic {
+            font-size: 10px;
+
+            padding: 5px 7px;
+        }
+
+
+        .button {
+            min-height: 42px;
+
+            padding: 0 19px;
+
+            font-size: 13px;
+        }
+
+
+        .archive-section {
+            padding-bottom: 52px;
+        }
+
+
+        .year {
+            margin: 28px 0 15px;
+
+            font-size: 20px;
+        }
+
+
+        .issues {
+            grid-template-columns: 1fr;
+
+            gap: 12px;
+        }
+
 
         .issue-card {
-            min-height: 180px;
-            padding: 24px;
-            background: #ffffff;
-            border: 1px solid #e1e4e7;
-            border-radius: 10px;
-            transition:
-                box-shadow 0.2s ease,
-                transform 0.2s ease;
+            min-height: 155px;
+
+            padding: 19px;
         }
 
-        .issue-card.active {
-            cursor: pointer;
-        }
-
-        .issue-card.active:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-        }
-
-        .issue-number {
-            margin-bottom: 10px;
-            font-size: 25px;
-            font-weight: 750;
-            letter-spacing: -0.02em;
-        }
-
-        .issue-year {
-            margin-bottom: 17px;
-            color: #858c94;
-            font-size: 14px;
-        }
-
-        .issue-link {
-            color: #20252b;
-            font-size: 14px;
-            font-weight: 700;
-            text-decoration: none;
-        }
-
-        .issue-link:hover {
-            text-decoration: underline;
-        }
-
-        .issue-placeholder {
-            color: #969da5;
-            font-size: 14px;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            border-top: 1px solid #343a40;
-            background: #20252b;
-            color: #aeb5bc;
-        }
 
         .footer-inner {
-            width: min(1180px, calc(100% - 40px));
-            margin: 0 auto;
-            padding: 30px 0;
-            font-size: 13px;
-            line-height: 1.5;
+            padding: 23px 0;
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
 
-        @media (max-width: 820px) {
-
-            .header-inner {
-                padding: 44px 0 42px;
-            }
-
-            .latest {
-                grid-template-columns: 1fr;
-                gap: 34px;
-                padding: 22px;
-            }
-
-            .cover {
-                max-width: 310px;
-            }
-
-            .latest-content {
-                padding: 0;
-            }
-
-            .issues {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
+        .auth-modal {
+            padding: 30px 24px;
         }
-
-        @media (max-width: 560px) {
-
-            .container,
-            .header-inner,
-            .footer-inner {
-                width: min(100% - 28px, 1180px);
+    }
+</style>
+        <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){
+                (m[i].a=m[i].a||[]).push(arguments)
+            };
+            m[i].l=1*new Date();
+            for (var j=0; j<document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
             }
+            k=e.createElement(t),
+            a=e.getElementsByTagName(t)[0],
+            k.async=1,
+            k.src=r,
+            a.parentNode.insertBefore(k,a)
+        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-            .header h1 {
-                font-size: 34px;
-            }
-
-            .header-description {
-                font-size: 16px;
-            }
-
-            .section {
-                padding-top: 48px;
-            }
-
-            .section-heading h2 {
-                font-size: 26px;
-            }
-
-            .latest-content h3 {
-                font-size: 36px;
-            }
-
-            .latest-content p {
-                font-size: 16px;
-            }
-
-            .issues {
-                grid-template-columns: 1fr;
-            }
-
-            .archive-section {
-                padding-bottom: 60px;
-            }
-        }
-    </style>
-    <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){
-            (m[i].a=m[i].a||[]).push(arguments)
-        };
-        m[i].l=1*new Date();
-        for (var j=0; j<document.scripts.length; j++) {
-            if (document.scripts[j].src === r) {
-                return;
-            }
-        }
-        k=e.createElement(t),
-        a=e.getElementsByTagName(t)[0],
-        k.async=1,
-        k.src=r,
-        a.parentNode.insertBefore(k,a)
-    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-    ym(112580824, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-    });
-</script>
-<noscript>
-    <div>
-        <img src="https://mc.yandex.ru/watch/112580824"
-             style="position:absolute; left:-9999px;"
-             alt="" />
-    </div>
-</noscript>
-<!-- /Yandex.Metrika counter -->
+        ym(112580824, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+        });
+    </script>
+    <noscript>
+        <div>
+            <img src="https://mc.yandex.ru/watch/112580824"
+                 style="position:absolute; left:-9999px;"
+                 alt="" />
+        </div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 
 <body>
-<script>
-const ARCHIVE_PASSWORD = "Gochs2026";
-const PASSWORD_KEY = "gochsJournalAccess";
 
-if (localStorage.getItem(PASSWORD_KEY) !== "granted") {
-    const password = prompt("Введите пароль для доступа к архиву:");
+<div class="grid-bg"></div>
 
-    if (password === ARCHIVE_PASSWORD) {
-        localStorage.setItem(PASSWORD_KEY, "granted");
-    } else {
-        document.body.innerHTML = `
-            <div style="
-                min-height:100vh;
-                display:flex;
-                align-items:center;
-                justify-content:center;
-                background:#101820;
-                color:white;
-                font-family:Arial,sans-serif;
-                text-align:center;
-                padding:30px;
-            ">
-                <div>
-                    <h2>Доступ ограничен</h2>
-                    <p>Неверный пароль.</p>
-                </div>
-            </div>
-        `;
-    }
-}
-</script>
+<!-- Auth Modal -->
+<div class="auth-overlay" id="authOverlay">
+    <div class="auth-modal">
+        <h2>Закрытый архив</h2>
+        <p>Введите пароль для доступа к архиву:</p>
+        <input type="password" id="passwordInput" class="auth-input" placeholder="Пароль">
+        <button class="auth-btn" onclick="checkPassword()">Войти</button>
+        <div class="auth-error" id="authError">Неверный пароль.</div>
+    </div>
+</div>
+
 <header class="header">
-    <div class="header-inner">
-
-        <div class="header-label">
-            Научно-практический журнал
+    <div class="container">
+        <div class="header-top-meta">
+            <div class="header-label">
+                <span class="header-label-dot"></span>
+                Научно-практический журнал
+            </div>
+            <div class="header-online-badge">
+                Онлайн-версия
+            </div>
         </div>
 
         <h1>
@@ -453,155 +1132,152 @@ if (localStorage.getItem(PASSWORD_KEY) !== "granted") {
 
         <p class="header-description">
         </p>
-
     </div>
 </header>
 
-
 <main class="container">
 
-  <!-- Последний выпуск -->
-
-<section class="section">
-
-    <div class="section-heading">
-        <h2>Последний выпуск</h2>
-        <span>Сентябрь 2026</span>
-    </div>
-
-    <div class="latest">
-
-        <div class="cover">
-            <img
-                src="issue09/images/cover9.jpg"
-                alt="Обложка журнала № 9, сентябрь 2026"
-            >
+    <!-- Последний выпуск -->
+    <section class="section">
+        <div class="section-heading">
+            <h2>Последний выпуск</h2>
+            <span>Сентябрь 2026</span>
         </div>
 
-        <div class="latest-content">
-
-            <div class="issue-label">
-                Выпуск № 9 • Сентябрь 2026
+        <div class="latest">
+            <div class="cover">
+                <img
+                    src="issue09/images/cover9.jpg"
+                    alt="Обложка журнала № 9, сентябрь 2026"
+                >
             </div>
 
-            <h3>
-                Гражданская оборона<br>
-                и защита от ЧС
-            </h3>
+            <div class="latest-content">
+                <div class="issue-label">
+                    Выпуск № 9 • Сентябрь 2026
+                </div>
 
-            <p>
-                Материалы по гражданской обороне,
-                защите от чрезвычайных ситуаций, подготовке населения,
-                защите объектов и организации мероприятий ГО и ЧС.
-            </p>
+                <h3>
+                    Гражданская оборона<br>
+                    и защита от ЧС
+                </h3>
 
-            <div class="topics">
+                <p>
+                    Материалы по гражданской обороне,
+                    защите от чрезвычайных ситуаций, подготовке населения,
+                    защите объектов и организации мероприятий ГО и ЧС.
+                </p>
 
-                <span class="topic">Защита объектов</span>
-                <span class="topic">Защита от ЧС</span>
-                <span class="topic">Обучение и тренировки</span>
-                <span class="topic">Спасательные службы</span>
-                <span class="topic">ЗСГО</span>
-                <span class="topic">Подготовка населения</span>
-                <span class="topic">Методические материалы</span>
+                <div class="topics">
+                    <span class="topic">Защита объектов</span>
+                    <span class="topic">Защита от ЧС</span>
+                    <span class="topic">Обучение и тренировки</span>
+                    <span class="topic">Спасательные службы</span>
+                    <span class="topic">ЗСГО</span>
+                    <span class="topic">Подготовка населения</span>
+                    <span class="topic">Методические материалы</span>
+                </div>
 
+                <a class="button" href="issue09/" target="_blank" rel="noopener noreferrer">
+                    Читать выпуск
+                </a>
             </div>
-
-           <a class="button" href="issue09/" target="_blank" rel="noopener noreferrer">
-    Читать выпуск
-</a>
-
         </div>
+    </section>
 
-    </div>
-
-</section>
-
+    <!-- Архив выпусков -->
     <section class="section archive-section">
-
         <div class="section-heading">
             <h2>Архив выпусков</h2>
         </div>
-
 
         <div class="year">
             2026
         </div>
 
         <div class="issues">
-
             <!-- №9 -->
-
-            <article class="issue-card active"
-                     onclick="window.location.href='issue9/'">
-
-                <div class="issue-number">
-                    № 9
+            <article class="issue-card active" onclick="window.open('issue09/', '_blank')">
+                <div class="issue-card-top">
+                    <div>
+                        <div class="issue-number">№ 9</div>
+                        <div class="issue-year">2026</div>
+                    </div>
+                    <span class="status-badge status-available">Доступен</span>
                 </div>
-
-                <div class="issue-year">
-                    2026
+                <div class="issue-card-bottom">
+                    <span class="issue-link">Открыть журнал &rarr;</span>
                 </div>
-
-                <a class="button" href="issue09/" target="_blank" rel="noopener noreferrer">
-                    Открыть журнал →
-                </a>
-
             </article>
-
 
             <!-- №8 -->
-
             <article class="issue-card">
-
-                <div class="issue-number">
-                    № 8
+                <div class="issue-card-top">
+                    <div>
+                        <div class="issue-number">№ 8</div>
+                        <div class="issue-year">2026</div>
+                    </div>
+                    <span class="status-badge status-disabled">В подготовке</span>
                 </div>
-
-                <div class="issue-year">
-                    2026
+                <div class="issue-card-bottom">
+                    <div class="issue-placeholder">Выпуск будет добавлен</div>
                 </div>
-
-                <div class="issue-placeholder">
-                    Выпуск будет добавлен
-                </div>
-
             </article>
-
 
             <!-- №7 -->
-
             <article class="issue-card">
-
-                <div class="issue-number">
-                    № 7
+                <div class="issue-card-top">
+                    <div>
+                        <div class="issue-number">№ 7</div>
+                        <div class="issue-year">2026</div>
+                    </div>
+                    <span class="status-badge status-disabled">В подготовке</span>
                 </div>
-
-                <div class="issue-year">
-                    2026
+                <div class="issue-card-bottom">
+                    <div class="issue-placeholder">Выпуск будет добавлен</div>
                 </div>
-
-                <div class="issue-placeholder">
-                    Выпуск будет добавлен
-                </div>
-
             </article>
-
         </div>
-
     </section>
 
 </main>
 
-
 <footer>
-
     <div class="footer-inner">
         © 2026 «Гражданская оборона и защита от чрезвычайных ситуаций»
     </div>
-
 </footer>
+
+<script>
+    const ARCHIVE_PASSWORD = "Gochs2026";
+    const PASSWORD_KEY = "gochsJournalAccess";
+    const overlay = document.getElementById('authOverlay');
+    const passwordInput = document.getElementById('passwordInput');
+    const authError = document.getElementById('authError');
+
+    function initAuth() {
+        if (localStorage.getItem(PASSWORD_KEY) !== "granted") {
+            overlay.classList.add('active');
+        }
+    }
+
+    function checkPassword() {
+        if (passwordInput.value === ARCHIVE_PASSWORD) {
+            localStorage.setItem(PASSWORD_KEY, "granted");
+            overlay.classList.remove('active');
+        } else {
+            authError.style.display = 'block';
+        }
+    }
+
+    passwordInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            checkPassword();
+        }
+    });
+
+    initAuth();
+</script>
 
 </body>
 </html>
-
