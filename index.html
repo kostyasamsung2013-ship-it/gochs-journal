@@ -788,11 +788,16 @@
         margin-bottom: 21px;
     }
 
+    .auth-input-wrapper {
+        position: relative;
+        width: 100%;
+        margin-bottom: 13px;
+    }
 
     .auth-input {
         width: 100%;
 
-        padding: 12px 16px;
+        padding: 12px 42px 12px 16px;
 
         background: #f8fafb;
 
@@ -804,7 +809,7 @@
 
         font-size: 15px;
 
-        margin-bottom: 13px;
+        margin-bottom: 0;
 
         text-align: center;
 
@@ -821,6 +826,36 @@
 
         box-shadow:
             0 0 0 3px var(--accent-glow);
+    }
+
+    .toggle-password {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        transition: var(--transition);
+    }
+
+    .toggle-password:hover {
+        color: var(--accent-blue);
+    }
+
+    .toggle-password svg {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
     }
 
 
@@ -1108,7 +1143,15 @@
     <div class="auth-modal">
         <h2>Закрытый архив</h2>
         <p>Введите пароль для доступа к архиву:</p>
-        <input type="password" id="passwordInput" class="auth-input" placeholder="Пароль">
+        <div class="auth-input-wrapper">
+            <input type="password" id="passwordInput" class="auth-input" placeholder="Пароль">
+            <button type="button" class="toggle-password" onclick="togglePassword()" aria-label="Показать/скрыть пароль">
+                <svg id="eyeIcon" viewBox="0 0 24 24">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </button>
+        </div>
         <button class="auth-btn" onclick="checkPassword()">Войти</button>
         <div class="auth-error" id="authError">Неверный пароль.</div>
     </div>
@@ -1267,6 +1310,17 @@
             overlay.classList.remove('active');
         } else {
             authError.style.display = 'block';
+        }
+    }
+
+    function togglePassword() {
+        const eyeIcon = document.getElementById('eyeIcon');
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>';
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>';
         }
     }
 
